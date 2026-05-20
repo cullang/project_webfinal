@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jadwal Kuliah</title>
 
   <link rel="stylesheet" href="{{ asset('css/jadwal.css') }}">
@@ -14,35 +13,33 @@
 <div class="layout">
 
   <aside class="sidebar">
-
     <div>
       <div class="logo">
         <h2>UniPortal</h2>
-        <p>ACADEMIC MANAGEMENT</p>
+        <p>Academic Management</p>
       </div>
 
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}" class="active"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
-        <a href="#"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
-        <a href="#"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
-        <a href="#"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
-        <a href="#"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
-        <a href="#"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
+        <a href="{{ route('deadline') }}"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
+        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
+        <a href="{{ route('informasi') }}"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
+        <a href="{{ route('catatan') }}"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
+        <a href="{{ route('forum') }}"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
       </nav>
     </div>
 
     <div class="bottom-menu">
-      <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="{{ route('settings') }}"><i class="fa-solid fa-gear"></i> Settings</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
-
   </aside>
 
   <main class="main">
 
     <header class="topbar">
-      <div class="search">
+      <div class="search-top">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari mata kuliah...">
       </div>
@@ -65,120 +62,104 @@
           <p>Semester Ganjil 2023/2024</p>
         </div>
 
-        <div class="view-btn">
-          <button class="active">Weekly View</button>
-          <button>List View</button>
+        <button class="export-btn">
+          <i class="fa-solid fa-download"></i> Export PDF
+        </button>
+      </div>
+
+      <div class="filter-row">
+        <select>
+          <option>Semua Hari</option>
+          <option>Senin</option>
+          <option>Selasa</option>
+        </select>
+
+        <select>
+          <option>Semua Tipe</option>
+          <option>Teori</option>
+          <option>Praktikum</option>
+        </select>
+
+        <div class="search-filter">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Cari Nama Mata Kuliah atau Dosen...">
         </div>
       </div>
 
-      <div class="schedule-layout">
+      <div class="day-title">
+        <span></span> SENIN
+      </div>
 
-        <div class="days">
-          <div class="day active">
-            <small>SENIN</small>
-            <h3>18 Sep</h3>
-          </div>
-
-          <div class="day">
-            <small>SELASA</small>
-            <h3>19 Sep</h3>
-          </div>
-
-          <div class="day">
-            <small>RABU</small>
-            <h3>20 Sep</h3>
-          </div>
-
-          <div class="day">
-            <small>KAMIS</small>
-            <h3>21 Sep</h3>
-          </div>
-
-          <div class="day">
-            <small>JUMAT</small>
-            <h3>22 Sep</h3>
-          </div>
+      <div class="course-card blue">
+        <div class="time">
+          <h4>08:00 - 10:30</h4>
+          <p>SKS: 3</p>
         </div>
 
-        <div class="classes">
-
-          <div class="class-card active-card">
-            <div class="time">
-              <h2>08:00</h2>
-              <p>s.d 10:30</p>
-            </div>
-
-            <div class="class-info">
-              <span>TEORI</span>
-              <small>Mata Kuliah Wajib</small>
-              <h3>Sistem Operasi Lanjut</h3>
-
-              <div class="meta">
-                <p><i class="fa-regular fa-building"></i> Lab Komputer 402</p>
-                <p><i class="fa-regular fa-user"></i> Dr. Irwan Saputra</p>
-              </div>
-            </div>
-
-            <div class="actions">
-              <label>SEDANG BERLANGSUNG</label>
-              <button><i class="fa-regular fa-eye"></i> Lihat Detail</button>
-              <button class="outline"><i class="fa-regular fa-calendar"></i> Kalender</button>
-            </div>
-          </div>
-
-          <div class="class-card">
-            <div class="time">
-              <h2>11:00</h2>
-              <p>s.d 13:30</p>
-            </div>
-
-            <div class="class-info">
-              <span class="gray">PRAKTIKUM</span>
-              <small>Mata Kuliah Pilihan</small>
-              <h3>Pengembangan Aplikasi Mobile</h3>
-
-              <div class="meta">
-                <p><i class="fa-regular fa-building"></i> Gedung B - R.301</p>
-                <p><i class="fa-regular fa-user"></i> Siti Rahayu, M.T</p>
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="soft">Lihat Detail</button>
-              <button class="icon"><i class="fa-regular fa-calendar"></i></button>
-            </div>
-          </div>
-
-          <div class="class-card">
-            <div class="time">
-              <h2>14:00</h2>
-              <p>s.d 15:40</p>
-            </div>
-
-            <div class="class-info">
-              <span class="gray">TEORI</span>
-              <small>Mata Kuliah Umum</small>
-              <h3>Etika Profesi & Hukum IT</h3>
-
-              <div class="meta">
-                <p><i class="fa-regular fa-building"></i> Gedung A - Aula Utama</p>
-                <p><i class="fa-regular fa-user"></i> Bambang Heru, S.H.</p>
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="soft">Lihat Detail</button>
-              <button class="icon"><i class="fa-regular fa-calendar"></i></button>
-            </div>
-          </div>
-
+        <div class="course-info">
+          <span class="badge">TEORI</span>
+          <h3>Sistem Operasi Lanjut</h3>
+          <p>
+            <i class="fa-regular fa-user"></i> Dr. Ir. Heru Santoso
+            <i class="fa-solid fa-location-dot"></i> Ruang Kuliah 3.2
+          </p>
         </div>
 
+        <div class="course-action">
+          <button>Lihat Detail</button>
+          <button class="green-btn"><i class="fa-regular fa-file-lines"></i> Modul</button>
+        </div>
+      </div>
+
+      <div class="course-card green">
+        <div class="time">
+          <h4>13:00 - 15:30</h4>
+          <p>SKS: 2</p>
+        </div>
+
+        <div class="course-info">
+          <span class="badge green-badge">PRAKTIKUM</span>
+          <h3>Workshop Jaringan Komputer</h3>
+          <p>
+            <i class="fa-regular fa-user"></i> Andini Putri, M.Kom
+            <i class="fa-solid fa-location-dot"></i> Lab Komputer 402
+          </p>
+        </div>
+
+        <div class="course-action">
+          <button>Lihat Detail</button>
+          <button class="green-btn"><i class="fa-solid fa-download"></i> Panduan</button>
+        </div>
+      </div>
+
+      <div class="day-title gray">
+        <span></span> SELASA
+      </div>
+
+      <div class="course-card orange">
+        <div class="time orange-time">
+          <h4>09:00 - 11:30</h4>
+          <p>SKS: 3</p>
+        </div>
+
+        <div class="course-info">
+          <span class="badge orange-badge">TEORI</span>
+          <h3>Kecerdasan Buatan</h3>
+          <p>
+            <i class="fa-regular fa-user"></i> Prof. Agus Wijaya
+            <i class="fa-solid fa-location-dot"></i> Auditorium Utama
+          </p>
+        </div>
+
+        <div class="course-action">
+          <button>Lihat Detail</button>
+          <button class="green-btn"><i class="fa-regular fa-file-lines"></i> Materi</button>
+        </div>
       </div>
 
       <div class="bottom-cards">
 
-        <div class="presence">
+        <div class="presence-card">
           <h2>Selesaikan Presensi Hari Ini!</h2>
           <p>
             Kamu memiliki 3 jadwal perkuliahan hari ini.
@@ -187,14 +168,14 @@
           <button>Buka Scanner Presensi</button>
         </div>
 
-        <div class="tips">
+        <div class="tip-card">
           <i class="fa-regular fa-lightbulb"></i>
           <h3>Tip Akademik</h3>
           <p>
             Materi "Sistem Operasi Lanjut" hari ini sudah tersedia di portal modul.
             Silakan unduh untuk persiapan praktikum besok.
           </p>
-          <a href="#">Unduh Modul <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#">Unduh Modul →</a>
         </div>
 
       </div>

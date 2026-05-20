@@ -23,16 +23,16 @@
       <nav class="menu">
         <a href="{{ route('dashboard') }}" class="active"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
-        <a href="#"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
-        <a href="#"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
-        <a href="#"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
-        <a href="#"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
-        <a href="#"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
+        <a href="{{ route('deadline') }}"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
+        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
+        <a href="{{ route('informasi') }}"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
+        <a href="{{ route('catatan') }}"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
+        <a href="{{ route('forum') }}"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
       </nav>
     </div>
 
     <div class="bottom-menu">
-      <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="{{ route('settings') }}"><i class="fa-solid fa-gear"></i> Settings</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
   </aside>
@@ -120,7 +120,9 @@
             <p>25 Oktober 2023</p>
           </div>
 
-          <button>Buka Kalender Lengkap</button>
+          <button onclick="window.location.href='{{ route('kalender') }}'">
+              Buka Kalender Lengkap
+          </button>
         </div>
 
       </div>
