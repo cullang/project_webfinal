@@ -2,8 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalender Akademik</title>
+  <title>Kalender Pribadi</title>
 
   <link rel="stylesheet" href="{{ asset('css/kalender.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,22 +16,21 @@
     <div>
       <div class="logo">
         <h2>UniPortal</h2>
-        <p>Academic Management</p>
+        <p>Personal Study Planner</p>
       </div>
 
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
         <a href="{{ route('deadline') }}"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
-        <a href="{{ route('kalender') }}" class="active"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
-        <a href="{{ route('informasi') }}"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
+        <a href="{{ route('kalender') }}" class="active"><i class="fa-regular fa-calendar-days"></i> Kalender Pribadi</a>
+        <a href="{{ route('informasi') }}"><i class="fa-solid fa-circle-info"></i> Info Kuliah</a>
         <a href="{{ route('catatan') }}"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
-        <a href="{{ route('forum') }}"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
       </nav>
     </div>
 
     <div class="bottom-menu">
-      <a href="{{ route('settings') }}"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
   </aside>
@@ -40,15 +38,17 @@
   <main class="main">
 
     <header class="topbar">
-      <h3>UniPortal</h3>
-
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Cari kegiatan...">
+        <input type="text" placeholder="Cari agenda pribadi...">
       </div>
 
       <div class="profile">
         <i class="fa-regular fa-bell"></i>
+        <div>
+          <h4>Ruslan</h4>
+          <p>Mahasiswa</p>
+        </div>
         <img src="https://i.pravatar.cc/100?img=14" alt="user">
       </div>
     </header>
@@ -57,23 +57,23 @@
 
       <div class="title-row">
         <div>
-          <small>Akademik > <b>Kalender</b></small>
-          <h1>September 2024</h1>
-          <p>Semester Ganjil 2024/2025</p>
+          <h1>Kalender Pribadi</h1>
+          <p>Catat agenda kuliah, UTS, UAS, presentasi, dan kegiatan penting secara manual.</p>
         </div>
 
-        <button class="download-btn">
-          <i class="fa-solid fa-download"></i> Unduh Kalender
+        <button class="add-btn">
+          <i class="fa-solid fa-plus"></i> Tambah Agenda
         </button>
       </div>
 
       <div class="main-grid">
 
-        <div class="calendar-box">
+        <div class="calendar-section">
 
-          <div class="view-toggle">
-            <button class="active">Bulan</button>
-            <button>Minggu</button>
+          <div class="month-header">
+            <button><i class="fa-solid fa-chevron-left"></i></button>
+            <h2>Mei 2026</h2>
+            <button><i class="fa-solid fa-chevron-right"></i></button>
           </div>
 
           <div class="calendar">
@@ -85,89 +85,84 @@
             <div class="day-name">Jum</div>
             <div class="day-name">Sab</div>
 
-            <div class="date muted">25</div>
             <div class="date muted">26</div>
             <div class="date muted">27</div>
             <div class="date muted">28</div>
             <div class="date muted">29</div>
             <div class="date muted">30</div>
-            <div class="date muted">31</div>
-
             <div class="date">1</div>
-            <div class="date event-orange">2 <span>Masa KRS</span></div>
+            <div class="date">2</div>
+
             <div class="date">3</div>
-            <div class="date">4</div>
+            <div class="date event-blue">4 <span>Kuliah</span></div>
             <div class="date">5</div>
-            <div class="date">6</div>
+            <div class="date event-red">6 <span>Deadline</span></div>
             <div class="date">7</div>
+            <div class="date event-green">8 <span>Kelompok</span></div>
+            <div class="date">9</div>
 
-            <div class="date">8</div>
-            <div class="date event-blue">9 <span>Kuliah Pertama</span></div>
             <div class="date">10</div>
-            <div class="date">11</div>
+            <div class="date event-orange">11 <span>UTS</span></div>
             <div class="date">12</div>
-            <div class="date event-green">13 <span>Wisuda XL</span></div>
-            <div class="date">14</div>
-
+            <div class="date">13</div>
+            <div class="date event-purple">14 <span>Presentasi</span></div>
             <div class="date">15</div>
-            <div class="date event-red">16 <span>Maulid Nabi</span></div>
-            <div class="date">17</div>
-            <div class="date">18</div>
-            <div class="date">19</div>
-            <div class="date">20</div>
-            <div class="date">21</div>
+            <div class="date">16</div>
 
-            <div class="date">22</div>
+            <div class="date">17</div>
+            <div class="date today">18 <span>Hari Ini</span></div>
+            <div class="date">19</div>
+            <div class="date event-blue">20 <span>Praktikum</span></div>
+            <div class="date">21</div>
+            <div class="date event-red">22 <span>Tugas</span></div>
             <div class="date">23</div>
+
             <div class="date">24</div>
             <div class="date">25</div>
-            <div class="date event-brown">26 <span>Seminar Nasional</span></div>
+            <div class="date event-green">26 <span>Diskusi</span></div>
             <div class="date">27</div>
-            <div class="date">28</div>
+            <div class="date event-orange">28 <span>UAS</span></div>
+            <div class="date">29</div>
+            <div class="date">30</div>
           </div>
+
         </div>
 
-        <div class="right-panel">
+        <div class="right">
 
-          <div class="detail-card">
-            <div class="detail-title">
-              <h3>Detail Kegiatan</h3>
-              <a href="#">Lihat Semua</a>
+          <div class="side-card">
+            <h3><i class="fa-regular fa-calendar-check"></i> Agenda Terdekat</h3>
+
+            <div id="agendaContainer">
+              <p class="empty-message">Belum ada agenda</p>
             </div>
 
-            <div class="detail orange">
-              <h4>2 - 6 SEPTEMBER</h4>
-              <h3>Masa Pengisian KRS</h3>
-              <p>Periode pengisian Kartu Rencana Studi semester ganjil.</p>
-            </div>
-
-            <div class="detail blue">
-              <h4>9 SEPTEMBER</h4>
-              <h3>Perkuliahan Hari Pertama</h3>
-              <p>Awal perkuliahan tatap muka dan daring secara resmi.</p>
-            </div>
-
-            <div class="detail green">
-              <h4>13 SEPTEMBER</h4>
-              <h3>Wisuda Periode XL</h3>
-              <p>Upacara wisuda untuk lulusan gelombang kedua tahun 2024.</p>
-            </div>
-
-            <div class="detail red">
-              <h4>16 SEPTEMBER</h4>
-              <h3>Libur Nasional</h3>
-              <p>Maulid Nabi Muhammad SAW. Kampus diliburkan.</p>
-            </div>
           </div>
 
-          <div class="info-card">
-            <i class="fa-solid fa-bullhorn"></i>
-            <h3>Pengumuman Penting</h3>
-            <p>
-              Batas akhir pembayaran UKT Semester Ganjil diperpanjang
-              hingga 30 September 2024.
-            </p>
-            <button>Detail Info</button>
+          <div class="side-card category-card">
+            <h3>Kategori Agenda</h3>
+
+            <p><span class="dot blue"></span> Jadwal Kuliah</p>
+            <p><span class="dot red"></span> Deadline Tugas</p>
+            <p><span class="dot orange"></span> Ujian</p>
+            <p><span class="dot green"></span> Kerja Kelompok</p>
+            <p><span class="dot purple"></span> Presentasi</p>
+          </div>
+
+          <div class="side-card quick-card">
+            <h3>Aksi Cepat</h3>
+
+            <a href="{{ route('deadline') }}">
+              <i class="fa-solid fa-plus"></i> Tambah Deadline
+            </a>
+
+            <a href="{{ route('jadwal') }}">
+              <i class="fa-regular fa-calendar"></i> Lihat Jadwal Kuliah
+            </a>
+
+            <a href="{{ route('catatan') }}">
+              <i class="fa-regular fa-file-lines"></i> Buat Catatan Agenda
+            </a>
           </div>
 
         </div>
@@ -180,5 +175,39 @@
 
 </div>
 
+<div class="modal-overlay" id="modalAgenda">
+  <div class="modal-box">
+    <h2>Tambah Agenda</h2>
+
+    <label>Judul Agenda</label>
+    <input type="text" id="judulAgenda" placeholder="Contoh: UTS Pemrograman Web">
+
+    <label>Tanggal</label>
+    <input type="date" id="tanggalAgenda">
+
+    <label>Kategori</label>
+    <select id="kategoriAgenda">
+      <option>Jadwal Kuliah</option>
+      <option>Deadline Tugas</option>
+      <option>Ujian</option>
+      <option>Kerja Kelompok</option>
+      <option>Presentasi</option>
+      <option>Pribadi</option>
+    </select>
+
+    <label>Waktu (Opsional)</label>
+    <input type="time" id="waktuAgenda">
+
+    <label>Keterangan</label>
+    <textarea id="keterangan" placeholder="Catatan penting..."></textarea>
+
+    <div class="modal-actions">
+      <button type="button" id="closeModal">Batal</button>
+      <button type="button" id="saveAgenda">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ asset('js/kalender.js') }}"></script>
 </body>
 </html>

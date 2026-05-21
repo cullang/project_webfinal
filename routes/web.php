@@ -30,10 +30,6 @@ Route::get('/catatan-mahasiswa', function () {
     return view('catatan');
 })->name('catatan');
 
-Route::get('/forum-diskusi', function () {
-    return view('forum');
-})->name('forum');
-
 Route::get('/settings', function () {
     return view('settings');
 })->name('settings');

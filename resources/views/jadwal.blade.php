@@ -16,22 +16,21 @@
     <div>
       <div class="logo">
         <h2>UniPortal</h2>
-        <p>Academic Management</p>
+        <p>Personal Study Planner</p>
       </div>
 
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}" class="active"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
         <a href="{{ route('deadline') }}"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
-        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
-        <a href="{{ route('informasi') }}"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
+        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Pribadi</a>
+        <a href="{{ route('informasi') }}"><i class="fa-solid fa-circle-info"></i> Info Kuliah</a>
         <a href="{{ route('catatan') }}"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
-        <a href="{{ route('forum') }}"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
       </nav>
     </div>
 
     <div class="bottom-menu">
-      <a href="{{ route('settings') }}"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
   </aside>
@@ -41,14 +40,14 @@
     <header class="topbar">
       <div class="search-top">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Cari mata kuliah...">
+        <input type="text" placeholder="Cari mata kuliah, ruangan, atau dosen...">
       </div>
 
       <div class="profile">
         <i class="fa-regular fa-bell"></i>
         <div>
-          <h4>Budi Santoso</h4>
-          <p>Informatika • Smt 5</p>
+          <h4>Ruslan</h4>
+          <p>Mahasiswa</p>
         </div>
         <img src="https://i.pravatar.cc/100?img=14" alt="user">
       </div>
@@ -59,12 +58,46 @@
       <div class="title-row">
         <div>
           <h1>Jadwal Kuliah</h1>
-          <p>Semester Ganjil 2023/2024</p>
+          <p>Kelola jadwal kuliah pribadi yang kamu input secara manual.</p>
         </div>
 
-        <button class="export-btn">
-          <i class="fa-solid fa-download"></i> Export PDF
+        <button class="add-btn">
+          <i class="fa-solid fa-plus"></i> Tambah Jadwal
         </button>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card blue">
+          <i class="fa-regular fa-calendar"></i>
+          <div>
+            <h3>3</h3>
+            <p>Jadwal Hari Ini</p>
+          </div>
+        </div>
+
+        <div class="summary-card green">
+          <i class="fa-solid fa-book"></i>
+          <div>
+            <h3>7</h3>
+            <p>Total Mata Kuliah</p>
+          </div>
+        </div>
+
+        <div class="summary-card yellow">
+          <i class="fa-solid fa-flask"></i>
+          <div>
+            <h3>2</h3>
+            <p>Praktikum</p>
+          </div>
+        </div>
+
+        <div class="summary-card red">
+          <i class="fa-regular fa-clock"></i>
+          <div>
+            <h3>1</h3>
+            <p>Jadwal Terdekat</p>
+          </div>
+        </div>
       </div>
 
       <div class="filter-row">
@@ -72,6 +105,9 @@
           <option>Semua Hari</option>
           <option>Senin</option>
           <option>Selasa</option>
+          <option>Rabu</option>
+          <option>Kamis</option>
+          <option>Jumat</option>
         </select>
 
         <select>
@@ -80,113 +116,231 @@
           <option>Praktikum</option>
         </select>
 
-        <div class="search-filter">
+        <div class="filter-search">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Cari Nama Mata Kuliah atau Dosen...">
+          <input type="text" placeholder="Cari nama mata kuliah...">
         </div>
       </div>
 
-      <div class="day-title">
-        <span></span> SENIN
+      <div class="main-grid">
+
+        <div class="left">
+
+          <div class="day-section">
+            <div class="day-title">
+              <span></span>
+              <h3>Senin</h3>
+            </div>
+
+            <div class="schedule-card blue-line">
+              <div class="time-box blue-box">
+                <h4>08:00</h4>
+                <p>10:30</p>
+              </div>
+
+              <div class="schedule-info">
+                <span class="badge blue-badge">TEORI</span>
+                <h3>Pemrograman Web</h3>
+                <p>
+                  <i class="fa-regular fa-user"></i> Pak Rahmat, M.Kom
+                  <i class="fa-solid fa-location-dot"></i> Lab Komputer 2
+                </p>
+                <small>Catatan: Bawa laptop dan koneksi internet.</small>
+              </div>
+
+              <div class="schedule-action">
+                <button class="detail-btn">Detail</button>
+                <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+
+            <div class="schedule-card green-line">
+              <div class="time-box green-box">
+                <h4>13:00</h4>
+                <p>15:30</p>
+              </div>
+
+              <div class="schedule-info">
+                <span class="badge green-badge">PRAKTIKUM</span>
+                <h3>Jaringan Komputer</h3>
+                <p>
+                  <i class="fa-regular fa-user"></i> Bu Andini
+                  <i class="fa-solid fa-location-dot"></i> Lab Jaringan
+                </p>
+                <small>Catatan: Siapkan laporan praktikum minggu lalu.</small>
+              </div>
+
+              <div class="schedule-action">
+                <button class="detail-btn">Detail</button>
+                <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="day-section">
+            <div class="day-title gray">
+              <span></span>
+              <h3>Selasa</h3>
+            </div>
+
+            <div class="schedule-card orange-line">
+              <div class="time-box orange-box">
+                <h4>09:00</h4>
+                <p>11:30</p>
+              </div>
+
+              <div class="schedule-info">
+                <span class="badge orange-badge">TEORI</span>
+                <h3>Basis Data Lanjut</h3>
+                <p>
+                  <i class="fa-regular fa-user"></i> Pak Irfan
+                  <i class="fa-solid fa-location-dot"></i> Ruang A-301
+                </p>
+                <small>Catatan: Review materi normalisasi database.</small>
+              </div>
+
+              <div class="schedule-action">
+                <button class="detail-btn">Detail</button>
+                <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="day-section">
+            <div class="day-title purple">
+              <span></span>
+              <h3>Rabu</h3>
+            </div>
+
+            <div class="schedule-card purple-line">
+              <div class="time-box purple-box">
+                <h4>10:00</h4>
+                <p>12:00</p>
+              </div>
+
+              <div class="schedule-info">
+                <span class="badge purple-badge">TEORI</span>
+                <h3>Interaksi Manusia dan Komputer</h3>
+                <p>
+                  <i class="fa-regular fa-user"></i> Bu Siti
+                  <i class="fa-solid fa-location-dot"></i> Ruang D-104
+                </p>
+                <small>Catatan: Siapkan tugas analisis UI aplikasi.</small>
+              </div>
+
+              <div class="schedule-action">
+                <button class="detail-btn">Detail</button>
+                <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- JADWAL TAMBAHAN ANDA -->
+          <div class="day-section">
+            <div class="day-title additional">
+              <span></span>
+              <h3>Jadwal Tambahan Anda</h3>
+            </div>
+            <div id="jadwalTambahanContainer">
+              <p class="empty-message" id="emptyMessage">Belum ada jadwal tambahan</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="right">
+
+          <div class="side-card next-card">
+            <h3><i class="fa-regular fa-clock"></i> Jadwal Terdekat</h3>
+
+            <div class="next-box">
+              <small>HARI INI • 08:00</small>
+              <h4>Pemrograman Web</h4>
+              <p>Lab Komputer 2</p>
+            </div>
+
+            <p class="note">Pastikan kamu sudah menyiapkan laptop dan file project sebelum kelas dimulai.</p>
+          </div>
+
+          <div class="side-card note-card">
+            <h3><i class="fa-regular fa-note-sticky"></i> Catatan Jadwal</h3>
+
+            <ul>
+              <li>Senin fokus praktikum web</li>
+              <li>Selasa review database</li>
+              <li>Rabu kumpulkan tugas IMK</li>
+            </ul>
+
+            <a href="{{ route('catatan') }}">Buka Catatan</a>
+          </div>
+
+          <div class="side-card action-card">
+            <h3>Aksi Cepat</h3>
+
+            <a href="{{ route('deadline') }}">
+              <i class="fa-solid fa-plus"></i> Tambah Deadline Tugas
+            </a>
+
+            <a href="{{ route('kalender') }}">
+              <i class="fa-regular fa-calendar-days"></i> Buka Kalender Pribadi
+            </a>
+
+            <a href="{{ route('catatan') }}">
+              <i class="fa-regular fa-file-lines"></i> Tambah Catatan Kuliah
+            </a>
+          </div>
+
+        </div>
+
       </div>
-
-      <div class="course-card blue">
-        <div class="time">
-          <h4>08:00 - 10:30</h4>
-          <p>SKS: 3</p>
-        </div>
-
-        <div class="course-info">
-          <span class="badge">TEORI</span>
-          <h3>Sistem Operasi Lanjut</h3>
-          <p>
-            <i class="fa-regular fa-user"></i> Dr. Ir. Heru Santoso
-            <i class="fa-solid fa-location-dot"></i> Ruang Kuliah 3.2
-          </p>
-        </div>
-
-        <div class="course-action">
-          <button>Lihat Detail</button>
-          <button class="green-btn"><i class="fa-regular fa-file-lines"></i> Modul</button>
-        </div>
-      </div>
-
-      <div class="course-card green">
-        <div class="time">
-          <h4>13:00 - 15:30</h4>
-          <p>SKS: 2</p>
-        </div>
-
-        <div class="course-info">
-          <span class="badge green-badge">PRAKTIKUM</span>
-          <h3>Workshop Jaringan Komputer</h3>
-          <p>
-            <i class="fa-regular fa-user"></i> Andini Putri, M.Kom
-            <i class="fa-solid fa-location-dot"></i> Lab Komputer 402
-          </p>
-        </div>
-
-        <div class="course-action">
-          <button>Lihat Detail</button>
-          <button class="green-btn"><i class="fa-solid fa-download"></i> Panduan</button>
-        </div>
-      </div>
-
-      <div class="day-title gray">
-        <span></span> SELASA
-      </div>
-
-      <div class="course-card orange">
-        <div class="time orange-time">
-          <h4>09:00 - 11:30</h4>
-          <p>SKS: 3</p>
-        </div>
-
-        <div class="course-info">
-          <span class="badge orange-badge">TEORI</span>
-          <h3>Kecerdasan Buatan</h3>
-          <p>
-            <i class="fa-regular fa-user"></i> Prof. Agus Wijaya
-            <i class="fa-solid fa-location-dot"></i> Auditorium Utama
-          </p>
-        </div>
-
-        <div class="course-action">
-          <button>Lihat Detail</button>
-          <button class="green-btn"><i class="fa-regular fa-file-lines"></i> Materi</button>
-        </div>
-      </div>
-
-      <div class="bottom-cards">
-
-        <div class="presence-card">
-          <h2>Selesaikan Presensi Hari Ini!</h2>
-          <p>
-            Kamu memiliki 3 jadwal perkuliahan hari ini.
-            Jangan lupa untuk melakukan presensi via QR-Code di setiap kelas.
-          </p>
-          <button>Buka Scanner Presensi</button>
-        </div>
-
-        <div class="tip-card">
-          <i class="fa-regular fa-lightbulb"></i>
-          <h3>Tip Akademik</h3>
-          <p>
-            Materi "Sistem Operasi Lanjut" hari ini sudah tersedia di portal modul.
-            Silakan unduh untuk persiapan praktikum besok.
-          </p>
-          <a href="#">Unduh Modul →</a>
-        </div>
-
-      </div>
-
-      <button class="float-btn">+</button>
 
     </section>
 
   </main>
 
 </div>
+<div class="modal-overlay" id="modalJadwal">
+  <div class="modal-box">
+    <h2>Tambah Jadwal Kuliah</h2>
 
+    <label>Nama Mata Kuliah</label>
+    <input type="text" id="namaMatkul" placeholder="Contoh: Pemrograman Web">
+
+    <label>Hari</label>
+    <select id="hariMatkul">
+      <option>Senin</option>
+      <option>Selasa</option>
+      <option>Rabu</option>
+      <option>Kamis</option>
+      <option>Jumat</option>
+    </select>
+
+    <label>Jam Mulai</label>
+    <input type="time" id="jamMulai">
+
+    <label>Jam Selesai</label>
+    <input type="time" id="jamSelesai">
+
+    <label>Tipe Kuliah</label>
+    <select id="tipeKuliah">
+      <option>Teori</option>
+      <option>Praktikum</option>
+    </select>
+
+    <label>Ruangan</label>
+    <input type="text" id="ruangan" placeholder="Contoh: Lab Komputer 2">
+
+    <label>Dosen</label>
+    <input type="text" id="dosen" placeholder="Contoh: Pak Rahmat">
+
+    <div class="modal-actions">
+      <button type="button" id="closeModal">Batal</button>
+      <button type="button" id="saveJadwal">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script src="{{ asset('js/jadwal.js') }}"></script>
 </body>
 </html>

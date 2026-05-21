@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deadline Tugas</title>
 
   <link rel="stylesheet" href="{{ asset('css/deadline.css') }}">
@@ -17,22 +16,21 @@
     <div>
       <div class="logo">
         <h2>UniPortal</h2>
-        <p>Academic Management</p>
+        <p>Personal Study Planner</p>
       </div>
 
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
         <a href="{{ route('deadline') }}" class="active"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
-        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
-        <a href="{{ route('informasi') }}"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
+        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Pribadi</a>
+        <a href="{{ route('informasi') }}"><i class="fa-solid fa-circle-info"></i> Info Kuliah</a>
         <a href="{{ route('catatan') }}"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
-        <a href="{{ route('forum') }}"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
       </nav>
     </div>
 
     <div class="bottom-menu">
-      <a href="{{ route('settings') }}"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
   </aside>
@@ -42,14 +40,14 @@
     <header class="topbar">
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Cari tugas...">
+        <input type="text" placeholder="Cari tugas atau mata kuliah...">
       </div>
 
       <div class="profile">
         <i class="fa-regular fa-bell"></i>
         <div>
-          <h4>Budi Santoso</h4>
-          <p>S1 Teknik Informatika</p>
+          <h4>Ruslan</h4>
+          <p>Mahasiswa</p>
         </div>
         <img src="https://i.pravatar.cc/100?img=14" alt="user">
       </div>
@@ -57,142 +55,203 @@
 
     <section class="content">
 
+      <div class="title-row">
+        <div>
+          <h1>Deadline Tugas</h1>
+          <p>Kelola daftar tugas kuliah yang kamu input secara manual.</p>
+        </div>
+
+        <button class="add-btn">
+          <i class="fa-solid fa-plus"></i> Tambah Tugas
+        </button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card red">
+          <i class="fa-regular fa-clock"></i>
+          <div>
+            <h3>2</h3>
+            <p>Deadline Dekat</p>
+          </div>
+        </div>
+
+        <div class="stat-card yellow">
+          <i class="fa-solid fa-spinner"></i>
+          <div>
+            <h3>4</h3>
+            <p>Sedang Dikerjakan</p>
+          </div>
+        </div>
+
+        <div class="stat-card green">
+          <i class="fa-regular fa-circle-check"></i>
+          <div>
+            <h3>6</h3>
+            <p>Tugas Selesai</p>
+          </div>
+        </div>
+
+        <div class="stat-card blue">
+          <i class="fa-regular fa-clipboard"></i>
+          <div>
+            <h3>12</h3>
+            <p>Total Tugas</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <button class="active">Semua</button>
+        <button>Belum</button>
+        <button>Proses</button>
+        <button>Selesai</button>
+
+        <select>
+          <option>Semua Mata Kuliah</option>
+          <option>Pemrograman Web</option>
+          <option>Basis Data</option>
+          <option>IMK</option>
+        </select>
+      </div>
+
       <div class="main-grid">
 
-        <div class="left-content">
+        <div class="left">
 
-          <div class="summary-card">
-            <div>
-              <h2>Ringkasan Tugas</h2>
-              <p>Kamu memiliki 4 tugas yang mendekati deadline minggu ini. Tetap semangat!</p>
+          <div class="task-card urgent">
+            <div class="task-main">
+              <span class="tag red-tag">DEADLINE DEKAT</span>
+              <h3>Laporan Praktikum Pemrograman Web</h3>
+              <p>
+                Membuat laporan hasil praktikum CRUD Laravel dan screenshot hasil pengujian.
+              </p>
 
-              <div class="summary-stats">
-                <div>
-                  <i class="fa-regular fa-clipboard"></i>
-                  <span>Pending</span>
-                  <h3>12</h3>
-                </div>
-
-                <div>
-                  <i class="fa-regular fa-circle-check"></i>
-                  <span>Selesai</span>
-                  <h3>48</h3>
-                </div>
+              <div class="task-meta">
+                <span><i class="fa-solid fa-book"></i> Pemrograman Web</span>
+                <span><i class="fa-regular fa-calendar"></i> Besok, 23:59</span>
               </div>
             </div>
 
-            <i class="fa-solid fa-book-open big-icon"></i>
+            <div class="task-action">
+              <span class="status belum">Belum</span>
+              <button>Tandai Selesai</button>
+            </div>
           </div>
 
-          <div class="filter-row">
-            <button class="active">Semua Tugas</button>
-            <button>Menunggu</button>
-            <button>Selesai</button>
-            <button>Terlambat</button>
-          </div>
-
-          <div class="task-card green-line">
-            <div>
-              <span class="tag green">PEMROGRAMAN WEB</span>
-              <small>Tugas Praktikum 4</small>
-              <h3>Implementasi REST API <br> dengan Node.js</h3>
-
+          <div class="task-card process-line">
+            <div class="task-main">
+              <span class="tag yellow-tag">PROSES</span>
+              <h3>Normalisasi Database Rental</h3>
               <p>
-                <i class="fa-regular fa-calendar"></i> 24 Okt 2023, 23:59
-                <i class="fa-regular fa-clock"></i> 2 Hari Lagi
+                Menyusun tabel database dari bentuk tidak normal sampai 3NF.
               </p>
+
+              <div class="task-meta">
+                <span><i class="fa-solid fa-book"></i> Basis Data Lanjut</span>
+                <span><i class="fa-regular fa-calendar"></i> Jumat, 20:00</span>
+              </div>
             </div>
 
             <div class="task-action">
-              <i class="fa-regular fa-bell"></i>
-              <button><i class="fa-regular fa-circle-check"></i> Tandai Selesai</button>
+              <span class="status proses">Proses</span>
+              <button>Tandai Selesai</button>
             </div>
           </div>
 
-          <div class="task-card blue-line">
-            <div>
-              <span class="tag blue">BASIS DATA</span>
-              <small>Proyek Akhir Semester</small>
-              <h3>Desain Database E-Commerce <br> Kompleks</h3>
-
+          <div class="task-card normal-line">
+            <div class="task-main">
+              <span class="tag blue-tag">MINGGU INI</span>
+              <h3>Analisis Tampilan Aplikasi Mobile</h3>
               <p>
-                <i class="fa-regular fa-calendar"></i> 28 Okt 2023, 23:59
-                <i class="fa-regular fa-clock"></i> 6 Hari Lagi
+                Membuat analisis UI/UX aplikasi berdasarkan prinsip usability dan accessibility.
               </p>
+
+              <div class="task-meta">
+                <span><i class="fa-solid fa-book"></i> Interaksi Manusia dan Komputer</span>
+                <span><i class="fa-regular fa-calendar"></i> Minggu, 21:00</span>
+              </div>
             </div>
 
             <div class="task-action">
-              <i class="fa-regular fa-bell"></i>
-              <button><i class="fa-regular fa-circle-check"></i> Tandai Selesai</button>
+              <span class="status belum">Belum</span>
+              <button>Tandai Selesai</button>
             </div>
           </div>
 
-          <div class="task-card done gray-line">
-            <div>
-              <span class="tag gray">KECERDASAN BUATAN</span>
-              <small>Latihan 2</small>
-              <h3>Implementasi Algoritma A* Search</h3>
-              <p><i class="fa-regular fa-circle-check"></i> Sudah Dikumpulkan</p>
+          <div class="task-card done-line done-card">
+            <div class="task-main">
+              <span class="tag green-tag">SELESAI</span>
+              <h3>Rangkuman Materi Jaringan Komputer</h3>
+              <p>
+                Membuat ringkasan materi subnetting dan konfigurasi dasar jaringan.
+              </p>
+
+              <div class="task-meta">
+                <span><i class="fa-solid fa-book"></i> Jaringan Komputer</span>
+                <span><i class="fa-regular fa-circle-check"></i> Sudah selesai</span>
+              </div>
             </div>
 
-            <p class="done-text">Selesai</p>
+            <div class="task-action">
+              <span class="status selesai">Selesai</span>
+              <button class="outline">Lihat</button>
+            </div>
           </div>
 
-          <button class="more-btn">Lihat 15 Tugas Lainnya</button>
+          <!-- TUGAS TAMBAHAN ANDA -->
+          <div id="tugasContainer">
+            <p class="empty-message">Belum ada tugas tambahan</p>
+          </div>
 
         </div>
 
-        <div class="right-content">
+        <div class="right">
 
-          <div class="reminder-card">
-            <i class="fa-regular fa-circle-check"></i>
-            <h2>Reminder Aktif</h2>
-            <p>Pengingat otomatis disetel 24 jam sebelum deadline berakhir</p>
-            <button>Kelola Pengingat</button>
-          </div>
+          <div class="side-card reminder-card">
+            <h3><i class="fa-regular fa-bell"></i> Pengingat Pribadi</h3>
+            <p>Jangan lupa menyelesaikan tugas yang deadline-nya paling dekat terlebih dahulu.</p>
 
-          <div class="sort-row">
-            <span>Urutkan:</span>
-            <select>
-              <option>Deadline Terdekat</option>
-              <option>Deadline Terlama</option>
-            </select>
-          </div>
-
-          <div class="nearest-card">
-            <h3>Deadline Terdekat</h3>
-
-            <div class="nearest green-border">
-              <h4>Implementasi REST API</h4>
+            <div class="reminder-box">
+              <small>PALING DEKAT</small>
+              <h4>Laporan Praktikum Web</h4>
               <p>Besok, 23:59</p>
             </div>
-
-            <div class="nearest green-border">
-              <h4>Analisa Sistem Informasi</h4>
-              <p>Kamis, 12:00</p>
-            </div>
-
-            <div class="nearest blue-border">
-              <h4>Desain Database E-Commerce</h4>
-              <p>Sabtu, 23:59</p>
-            </div>
           </div>
 
-          <div class="tip-card">
-            <h4>Tip Produktivitas</h4>
-            <h2>Gunakan Teknik Pomodoro</h2>
-            <p>
-              Selesaikan tugas besar dengan membaginya menjadi interval 25 menit
-              untuk hasil maksimal.
-            </p>
-            <a href="#">Baca Selengkapnya</a>
+          <div class="side-card progress-card">
+            <h3><i class="fa-solid fa-chart-simple"></i> Progress Tugas</h3>
+
+            <div class="progress-row">
+              <span>Selesai</span>
+              <b>60%</b>
+            </div>
+
+            <div class="progress-bar">
+              <div></div>
+            </div>
+
+            <p>6 dari 10 tugas aktif sudah diselesaikan.</p>
+          </div>
+
+          <div class="side-card quick-card">
+            <h3>Aksi Cepat</h3>
+
+            <a href="{{ route('jadwal') }}">
+              <i class="fa-regular fa-calendar"></i> Lihat Jadwal Kuliah
+            </a>
+
+            <a href="{{ route('catatan') }}">
+              <i class="fa-regular fa-file-lines"></i> Buat Catatan Tugas
+            </a>
+
+            <a href="{{ route('kalender') }}">
+              <i class="fa-regular fa-calendar-days"></i> Masukkan ke Kalender
+            </a>
           </div>
 
         </div>
 
       </div>
-
-      <button class="float-btn">+</button>
 
     </section>
 
@@ -200,5 +259,36 @@
 
 </div>
 
+<div class="modal-overlay" id="modalTugas">
+  <div class="modal-box">
+    <h2>Tambah Tugas</h2>
+
+    <label>Nama Tugas</label>
+    <input type="text" id="namaTugas" placeholder="Contoh: Laporan Praktikum Web">
+
+    <label>Mata Kuliah</label>
+    <input type="text" id="mataKuliah" placeholder="Contoh: Pemrograman Web">
+
+    <label>Tanggal Deadline</label>
+    <input type="date" id="tanggalDeadline">
+
+    <label>Status</label>
+    <select id="status">
+      <option>Belum</option>
+      <option>Proses</option>
+      <option>Selesai</option>
+    </select>
+
+    <label>Keterangan</label>
+    <textarea id="keterangan" placeholder="Deskripsi tugas atau catatan penting..."></textarea>
+
+    <div class="modal-actions">
+      <button type="button" id="closeModal">Batal</button>
+      <button type="button" id="saveTugas">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ asset('js/deadline.js') }}"></script>
 </body>
 </html>

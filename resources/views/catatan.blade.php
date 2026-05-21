@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catatan Mahasiswa</title>
 
   <link rel="stylesheet" href="{{ asset('css/catatan.css') }}">
@@ -17,22 +16,21 @@
     <div>
       <div class="logo">
         <h2>UniPortal</h2>
-        <p>Academic Management</p>
+        <p>Personal Study Planner</p>
       </div>
 
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
         <a href="{{ route('deadline') }}"><i class="fa-regular fa-calendar-xmark"></i> Deadline Tugas</a>
-        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Akademik</a>
-        <a href="{{ route('informasi') }}"><i class="fa-solid fa-graduation-cap"></i> Informasi Kampus</a>
+        <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Kalender Pribadi</a>
+        <a href="{{ route('informasi') }}"><i class="fa-solid fa-circle-info"></i> Info Kuliah</a>
         <a href="{{ route('catatan') }}" class="active"><i class="fa-regular fa-file-lines"></i> Catatan Mahasiswa</a>
-        <a href="{{ route('forum') }}"><i class="fa-regular fa-comments"></i> Forum Diskusi</a>
       </nav>
     </div>
 
     <div class="bottom-menu">
-      <a href="{{ route('settings') }}"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
     </div>
   </aside>
@@ -42,14 +40,14 @@
     <header class="topbar">
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Cari catatan...">
+        <input type="text" placeholder="Cari catatan kuliah...">
       </div>
 
       <div class="profile">
         <i class="fa-regular fa-bell"></i>
         <div>
-          <h4>Budi Santoso</h4>
-          <p>Informatika '21</p>
+          <h4>Ruslan</h4>
+          <p>Mahasiswa</p>
         </div>
         <img src="https://i.pravatar.cc/100?img=14" alt="user">
       </div>
@@ -60,135 +58,208 @@
       <div class="title-row">
         <div>
           <h1>Catatan Mahasiswa</h1>
-          <p>Kelola materi kuliah dan referensi belajarmu di satu tempat.</p>
+          <p>Simpan ringkasan materi, ide tugas, dan catatan belajar pribadi.</p>
         </div>
 
         <button class="add-btn">
-          <i class="fa-solid fa-plus"></i> Buat Catatan Baru
+          <i class="fa-solid fa-plus"></i> Tambah Catatan
         </button>
       </div>
 
-      <h3 class="section-heading">
-        <i class="fa-solid fa-thumbtack"></i> Catatan Utama
-      </h3>
-
-      <div class="featured-grid">
-
-        <div class="featured-card blue-line">
-          <div class="card-top">
-            <span class="tag blue">Pemrograman Web</span>
-            <small>Diperbarui 2 jam lalu</small>
-          </div>
-
-          <h2>Implementasi REST API dengan Node.js & Express</h2>
-          <p>
-            Membahas tentang arsitektur REST, penggunaan middleware untuk autentikasi JWT,
-            dan integrasi database...
-          </p>
-
-          <div class="card-footer">
-            <div class="avatars">
-              <span>RK</span>
-              <span>JS</span>
-            </div>
-
-            <div class="icons">
-              <i class="fa-solid fa-pen"></i>
-              <i class="fa-solid fa-star active-star"></i>
-            </div>
+      <div class="stats-grid">
+        <div class="stat-card blue">
+          <i class="fa-regular fa-file-lines"></i>
+          <div>
+            <h3>8</h3>
+            <p>Total Catatan</p>
           </div>
         </div>
 
-        <div class="featured-card green-line">
-          <div class="card-top">
-            <span class="tag green">Kecerdasan Buatan</span>
-            <small>Diperbarui Kemarin</small>
-          </div>
-
-          <h2>Neural Networks: Konsep Backpropagation</h2>
-          <p>
-            Penjelasan mendalam mengenai algoritma optimasi untuk melatih jaringan saraf tiruan
-            melalui kalkulasi...
-          </p>
-
-          <div class="card-footer">
-            <p><i class="fa-solid fa-paperclip"></i> 2 Lampiran</p>
-
-            <div class="icons">
-              <i class="fa-solid fa-pen"></i>
-              <i class="fa-solid fa-star active-star"></i>
-            </div>
+        <div class="stat-card green">
+          <i class="fa-solid fa-star"></i>
+          <div>
+            <h3>3</h3>
+            <p>Catatan Penting</p>
           </div>
         </div>
 
+        <div class="stat-card yellow">
+          <i class="fa-solid fa-book"></i>
+          <div>
+            <h3>5</h3>
+            <p>Mata Kuliah</p>
+          </div>
+        </div>
+
+        <div class="stat-card red">
+          <i class="fa-regular fa-clock"></i>
+          <div>
+            <h3>2</h3>
+            <p>Update Hari Ini</p>
+          </div>
+        </div>
       </div>
 
       <div class="filter-row">
         <button class="active">Semua</button>
+        <button>Penting</button>
         <button>Pemrograman Web</button>
         <button>Basis Data</button>
-        <button>Kecerdasan Buatan</button>
-        <button>Etika Profesi</button>
-        <button class="filter-icon"><i class="fa-solid fa-sliders"></i></button>
+        <button>IMK</button>
       </div>
 
-      <div class="note-grid">
+      <div class="main-grid">
 
-        <div class="note-card">
-          <span class="tag yellow">BASIS DATA</span>
-          <h3>Normalisasi 1NF ke 3NF</h3>
-          <p>
-            Langkah-langkah praktis dalam menyederhanakan data pada sistem database relasional.
-          </p>
+        <div class="left">
 
-          <div class="note-footer">
-            <small>12 Okt 2023</small>
+          <div class="featured-card">
             <div>
-              <i class="fa-solid fa-pen"></i>
-              <i class="fa-solid fa-trash"></i>
-              <i class="fa-regular fa-star"></i>
+              <span class="tag blue-tag">CATATAN UTAMA</span>
+              <h2>Ringkasan Materi Laravel Routing dan Blade</h2>
+              <p>
+                Catatan ini berisi penjelasan tentang route, view, asset, blade template,
+                serta cara menghubungkan halaman Laravel menggunakan route name.
+              </p>
+
+              <div class="featured-meta">
+                <span><i class="fa-solid fa-book"></i> Pemrograman Web</span>
+                <span><i class="fa-regular fa-clock"></i> Diperbarui hari ini</span>
+              </div>
             </div>
+
+            <i class="fa-solid fa-star"></i>
           </div>
+
+          <div class="note-grid">
+
+            <div class="note-card blue-line">
+              <div class="note-top">
+                <span class="tag blue-tag">WEB</span>
+                <i class="fa-solid fa-star active-star"></i>
+              </div>
+
+              <h3>CRUD Laravel Dasar</h3>
+              <p>
+                Langkah membuat create, read, update, dan delete menggunakan controller,
+                model, migration, dan route resource.
+              </p>
+
+              <div class="note-footer">
+                <small>20 Mei 2026</small>
+                <div>
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-card green-line">
+              <div class="note-top">
+                <span class="tag green-tag">BASIS DATA</span>
+                <i class="fa-regular fa-star"></i>
+              </div>
+
+              <h3>Normalisasi Database</h3>
+              <p>
+                Normalisasi digunakan untuk mengurangi data ganda dan membuat struktur
+                tabel menjadi lebih rapi.
+              </p>
+
+              <div class="note-footer">
+                <small>18 Mei 2026</small>
+                <div>
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-card orange-line">
+              <div class="note-top">
+                <span class="tag orange-tag">IMK</span>
+                <i class="fa-solid fa-star active-star"></i>
+              </div>
+
+              <h3>Prinsip UI/UX</h3>
+              <p>
+                Tampilan aplikasi harus mudah dipahami, konsisten, responsif, dan nyaman
+                digunakan oleh pengguna.
+              </p>
+
+              <div class="note-footer">
+                <small>15 Mei 2026</small>
+                <div>
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-card purple-line">
+              <div class="note-top">
+                <span class="tag purple-tag">JARINGAN</span>
+                <i class="fa-regular fa-star"></i>
+              </div>
+
+              <h3>Subnetting Dasar</h3>
+              <p>
+                Subnetting membagi jaringan menjadi beberapa bagian kecil agar pengelolaan
+                alamat IP lebih efisien.
+              </p>
+
+              <div class="note-footer">
+                <small>12 Mei 2026</small>
+                <div>
+                  <i class="fa-solid fa-eye"></i>
+                  <i class="fa-solid fa-pen"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CATATAN TAMBAHAN ANDA -->
+          <div id="catatanContainer">
+            <p class="empty-message">Belum ada catatan tambahan</p>
+          </div>
+
         </div>
 
-        <div class="note-card">
-          <span class="tag blue">PEMROGRAMAN WEB</span>
-          <h3>Tailwind CSS vs Bootstrap</h3>
-          <p>
-            Perbandingan efisiensi development, ukuran file, dan fleksibilitas kustomisasi UI.
-          </p>
+        <div class="right">
 
-          <div class="note-footer">
-            <small>10 Okt 2023</small>
-            <div>
-              <i class="fa-solid fa-pen"></i>
-              <i class="fa-solid fa-trash"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
+          <div class="side-card quick-note">
+            <h3><i class="fa-regular fa-note-sticky"></i> Catatan Cepat</h3>
+
+            <textarea placeholder="Tulis catatan cepat di sini..."></textarea>
+
+            <button>Simpan Catatan</button>
           </div>
-        </div>
 
-        <div class="note-card">
-          <span class="tag green">ETIKA PROFESI</span>
-          <h3>UU ITE dan Keamanan Data</h3>
-          <p>
-            Poin-poin penting dalam regulasi digital di Indonesia yang berkaitan dengan privasi pengguna.
-          </p>
+          <div class="side-card category-card">
+            <h3>Kategori Catatan</h3>
 
-          <div class="note-footer">
-            <small>08 Okt 2023</small>
-            <div>
-              <i class="fa-solid fa-pen"></i>
-              <i class="fa-solid fa-trash"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
+            <p><span class="dot blue"></span> Pemrograman Web <b>3</b></p>
+            <p><span class="dot green"></span> Basis Data <b>2</b></p>
+            <p><span class="dot orange"></span> IMK <b>1</b></p>
+            <p><span class="dot purple"></span> Jaringan <b>2</b></p>
           </div>
-        </div>
 
-        <div class="add-topic">
-          <i class="fa-solid fa-circle-plus"></i>
-          <h3>Tambah Topik Baru</h3>
-          <p>Kategorikan catatanmu</p>
+          <div class="side-card quick-card">
+            <h3>Aksi Cepat</h3>
+
+            <a href="{{ route('deadline') }}">
+              <i class="fa-regular fa-calendar-xmark"></i> Buat Deadline dari Catatan
+            </a>
+
+            <a href="{{ route('jadwal') }}">
+              <i class="fa-regular fa-calendar"></i> Lihat Jadwal Kuliah
+            </a>
+
+            <a href="{{ route('kalender') }}">
+              <i class="fa-regular fa-calendar-days"></i> Tambah ke Kalender
+            </a>
+          </div>
+
         </div>
 
       </div>
@@ -199,5 +270,30 @@
 
 </div>
 
+<div class="modal-overlay" id="modalCatatan">
+  <div class="modal-box">
+    <h2>Tambah Catatan</h2>
+
+    <label>Judul Catatan</label>
+    <input type="text" id="judulCatatan" placeholder="Contoh: Ringkasan Materi Pemrograman Web">
+
+    <label>Mata Kuliah / Kategori</label>
+    <input type="text" id="mataKuliahCatatan" placeholder="Contoh: Pemrograman Web">
+
+    <label>Isi Catatan</label>
+    <textarea id="isiCatatan" placeholder="Tulis catatan Anda di sini..."></textarea>
+
+    <label>
+      <input type="checkbox" id="penting"> Tandai sebagai Catatan Penting
+    </label>
+
+    <div class="modal-actions">
+      <button type="button" id="closeModal">Batal</button>
+      <button type="button" id="saveCatatan">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ asset('js/catatan.js') }}"></script>
 </body>
 </html>
