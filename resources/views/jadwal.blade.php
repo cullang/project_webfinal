@@ -2,6 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <!-- ===================== META VIEWPORT ===================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jadwal Kuliah</title>
 
   <link rel="stylesheet" href="{{ asset('css/jadwal.css') }}">
@@ -12,13 +14,16 @@
 
 <div class="layout">
 
+  <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar">
     <div>
+      <!-- ===================== LOGO SIDEBAR ===================== -->
       <div class="logo">
         <h2>UniPortal</h2>
         <p>Personal Study Planner</p>
       </div>
 
+      <!-- ===================== MENU NAVIGASI ===================== -->
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}" class="active"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
@@ -29,6 +34,7 @@
       </nav>
     </div>
 
+    <!-- ===================== BOTTOM MENU ===================== -->
     <div class="bottom-menu">
       <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
@@ -37,7 +43,9 @@
 
   <main class="main">
 
+    <!-- ===================== HEADER JADWAL ===================== -->
     <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="search-top">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari mata kuliah, ruangan, atau dosen...">
@@ -55,6 +63,7 @@
 
     <section class="content">
 
+      <!-- ===================== HEADER JADWAL ===================== -->
       <div class="title-row">
         <div>
           <h1>Jadwal Kuliah</h1>
@@ -66,6 +75,7 @@
         </button>
       </div>
 
+      <!-- ===================== SUMMARY CARD ===================== -->
       <div class="summary-grid">
         <div class="summary-card blue">
           <i class="fa-regular fa-calendar"></i>
@@ -100,6 +110,7 @@
         </div>
       </div>
 
+      <!-- ===================== FILTER JADWAL ===================== -->
       <div class="filter-row">
         <select>
           <option>Semua Hari</option>
@@ -122,6 +133,7 @@
         </div>
       </div>
 
+      <!-- ===================== CARD JADWAL ===================== -->
       <div class="main-grid">
 
         <div class="left">
@@ -341,6 +353,7 @@
 </div>
 
 <!-- Script -->
+<script src="{{ asset('js/ui.js') }}"></script>
 <script src="{{ asset('js/jadwal.js') }}"></script>
 </body>
 </html>

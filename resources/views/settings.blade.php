@@ -2,6 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <!-- ===================== META VIEWPORT ===================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Profil Mahasiswa</title>
 
   <link rel="stylesheet" href="{{ asset('css/settings.css') }}">
@@ -12,13 +14,16 @@
 
 <div class="layout">
 
+  <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar">
     <div>
+      <!-- ===================== LOGO SIDEBAR ===================== -->
       <div class="logo">
         <h2>UniPortal</h2>
         <p>Personal Study Planner</p>
       </div>
 
+      <!-- ===================== MENU NAVIGASI ===================== -->
       <nav class="menu">
         <a href="{{ route('dashboard') }}">
             <i class="fa-solid fa-border-all"></i> Dashboard
@@ -46,6 +51,7 @@
     </nav>
     </div>
 
+    <!-- ===================== BOTTOM MENU ===================== -->
     <div class="bottom-menu">
       <a href="{{ route('settings') }}" class="active"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
@@ -54,7 +60,9 @@
 
   <main class="main">
 
+    <!-- ===================== HEADER PROFIL ===================== -->
     <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari pengaturan...">
@@ -72,6 +80,7 @@
 
     <section class="content">
 
+      <!-- ===================== HEADER PROFIL ===================== -->
       <div class="title-row">
         <div>
           <h1>Profil Mahasiswa</h1>
@@ -83,6 +92,7 @@
         </button>
       </div>
 
+      <!-- ===================== FORM PROFIL ===================== -->
       <div class="main-grid">
 
         <div class="left">
@@ -291,6 +301,7 @@
 
 </div>
 
+<script src="{{ asset('js/ui.js') }}"></script>
 <script src="{{ asset('js/settings.js') }}"></script>
 </body>
 </html>

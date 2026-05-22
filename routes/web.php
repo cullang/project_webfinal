@@ -18,11 +18,11 @@ Route::get('/deadline-tugas', function () {
     return view('deadline');
 })->name('deadline');
 
-Route::get('/kalender-akademik', function () {
+Route::get('/kalender-pribadi', function () {
     return view('kalender');
 })->name('kalender');
 
-Route::get('/informasi-kampus', function () {
+Route::get('/info-kuliah', function () {
     return view('informasi');
 })->name('informasi');
 
@@ -30,6 +30,6 @@ Route::get('/catatan-mahasiswa', function () {
     return view('catatan');
 })->name('catatan');
 
-Route::get('/settings', function () {
+Route::get('/profil-mahasiswa', function () {
     return view('settings');
 })->name('settings');

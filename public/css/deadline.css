@@ -83,13 +83,17 @@ body{
 }
 
 .topbar{
-  height:52px;
-  background:white;
-  border-bottom:1px solid #d5ddea;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 35px;
+  height: 64px;
+  background: white;
+  border-bottom: 1px solid #d5ddea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  overflow: hidden;
 }
 
 .search{
@@ -110,24 +114,42 @@ body{
   width:100%;
 }
 
+  .hamburger{
+    display:none;
+    background:transparent;
+    border:none;
+    color:#0758d8;
+    font-size:20px;
+    cursor:pointer;
+  }
+
 .profile{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.profile h4{
-  font-size:12px;
-}
-
-.profile p{
-  font-size:10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 170px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  overflow: visible;
 }
 
 .profile img{
-  width:34px;
-  height:34px;
-  border-radius:50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.profile h4{
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.profile p{
+  font-size: 11px;
+  line-height: 1.1;
 }
 
 /* CONTENT */
@@ -462,14 +484,65 @@ body{
 }
 
 /* RESPONSIVE */
-@media(max-width:900px){
+@media screen and (max-width:900px){
   .sidebar{
-    display:none;
+    width:160px;
+  }
+
+  .main{
+    margin-left:160px;
+    width:calc(100% - 160px);
+  }
+
+  .stats-grid,
+  .main-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .search{
+    width:100%;
+    max-width:420px;
+  }
+}
+
+@media screen and (max-width:768px){
+  .sidebar{
+    position:fixed;
+    transform:translateX(-100%);
+    z-index:50;
+    width:240px;
+    height:100vh;
+    left:0;
+    top:0;
+    bottom:0;
+    transition:transform .25s ease;
+    background:#eef4ff;
+  }
+
+  .sidebar-open .sidebar{
+    transform:translateX(0);
   }
 
   .main{
     margin-left:0;
     width:100%;
+  }
+
+  .topbar{
+    padding:0 18px;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+
+  .topbar > * {
+    min-width:0;
+  }
+
+  .hamburger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
 
   .stats-grid,
@@ -486,7 +559,8 @@ body{
   }
 
   .search{
-    width:250px;
+    width:100%;
+    max-width:none;
   }
 }
 

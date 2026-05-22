@@ -2,6 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <!-- ===================== META VIEWPORT ===================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard UniPortal</title>
 
   <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
@@ -12,13 +14,16 @@
 
 <div class="dashboard">
 
+  <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar">
     <div>
+      <!-- ===================== LOGO SIDEBAR ===================== -->
       <div class="logo">
         <h2>UniPortal</h2>
         <p>Personal Study Planner</p>
       </div>
 
+      <!-- ===================== MENU NAVIGASI ===================== -->
       <nav class="menu">
         <a href="{{ route('dashboard') }}" class="active"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
@@ -29,6 +34,7 @@
       </nav>
     </div>
 
+    <!-- ===================== BOTTOM MENU ===================== -->
     <div class="bottom-menu">
       <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
@@ -37,7 +43,9 @@
 
   <main class="main">
 
+    <!-- ===================== HEADER DASHBOARD ===================== -->
     <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari jadwal, tugas, atau catatan...">
@@ -55,6 +63,7 @@
 
     <section class="content">
 
+      <!-- ===================== WELCOME SECTION ===================== -->
       <div class="welcome-card">
         <div>
           <h1>Selamat Datang, Ruslan 👋</h1>
@@ -67,6 +76,7 @@
         </div>
       </div>
 
+      <!-- ===================== STATISTIK CARD ===================== -->
       <div class="stats-grid">
         <div class="stat-card blue">
           <i class="fa-regular fa-calendar"></i>
@@ -101,6 +111,7 @@
         </div>
       </div>
 
+      <!-- ===================== QUICK ACTION ===================== -->
       <div class="quick-actions">
         <a href="{{ route('jadwal') }}"><i class="fa-solid fa-plus"></i> Tambah Jadwal</a>
         <a href="{{ route('deadline') }}"><i class="fa-solid fa-plus"></i> Tambah Deadline</a>
@@ -108,6 +119,7 @@
         <a href="{{ route('kalender') }}"><i class="fa-regular fa-calendar-days"></i> Buka Kalender</a>
       </div>
 
+      <!-- ===================== RINGKASAN DATA ===================== -->
       <div class="main-grid">
 
         <div class="left">
@@ -162,6 +174,7 @@
 
 </div>
 
+<script src="{{ asset('js/ui.js') }}"></script>
 <script src="{{ asset('js/dashboard.js') }}"></script>
 </body>
 </html>

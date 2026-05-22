@@ -2,6 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <!-- ===================== META VIEWPORT ===================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Deadline Tugas</title>
 
   <link rel="stylesheet" href="{{ asset('css/deadline.css') }}">
@@ -12,13 +14,16 @@
 
 <div class="layout">
 
+  <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar">
     <div>
+      <!-- ===================== LOGO SIDEBAR ===================== -->
       <div class="logo">
         <h2>UniPortal</h2>
         <p>Personal Study Planner</p>
       </div>
 
+      <!-- ===================== MENU NAVIGASI ===================== -->
       <nav class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa-solid fa-border-all"></i> Dashboard</a>
         <a href="{{ route('jadwal') }}"><i class="fa-regular fa-rectangle-list"></i> Jadwal Kuliah</a>
@@ -29,6 +34,7 @@
       </nav>
     </div>
 
+    <!-- ===================== BOTTOM MENU ===================== -->
     <div class="bottom-menu">
       <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
       <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
@@ -37,7 +43,9 @@
 
   <main class="main">
 
+    <!-- ===================== HEADER DEADLINE ===================== -->
     <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari tugas atau mata kuliah...">
@@ -55,6 +63,7 @@
 
     <section class="content">
 
+      <!-- ===================== HEADER DEADLINE ===================== -->
       <div class="title-row">
         <div>
           <h1>Deadline Tugas</h1>
@@ -66,6 +75,7 @@
         </button>
       </div>
 
+      <!-- ===================== STATISTIK CARD ===================== -->
       <div class="stats-grid">
         <div class="stat-card red">
           <i class="fa-regular fa-clock"></i>
@@ -100,6 +110,7 @@
         </div>
       </div>
 
+      <!-- ===================== FILTER DEADLINE ===================== -->
       <div class="filter-row">
         <button class="active">Semua</button>
         <button>Belum</button>
@@ -114,6 +125,7 @@
         </select>
       </div>
 
+      <!-- ===================== CARD DEADLINE ===================== -->
       <div class="main-grid">
 
         <div class="left">
@@ -289,6 +301,7 @@
   </div>
 </div>
 
+<script src="{{ asset('js/ui.js') }}"></script>
 <script src="{{ asset('js/deadline.js') }}"></script>
 </body>
 </html>
