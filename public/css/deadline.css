@@ -505,65 +505,6 @@ body{
   }
 }
 
-@media screen and (max-width:768px){
-  .sidebar{
-    position:fixed;
-    transform:translateX(-100%);
-    z-index:50;
-    width:240px;
-    height:100vh;
-    left:0;
-    top:0;
-    bottom:0;
-    transition:transform .25s ease;
-    background:#eef4ff;
-  }
-
-  .sidebar-open .sidebar{
-    transform:translateX(0);
-  }
-
-  .main{
-    margin-left:0;
-    width:100%;
-  }
-
-  .topbar{
-    padding:0 18px;
-    gap:12px;
-    flex-wrap:wrap;
-    align-items:flex-start;
-  }
-
-  .topbar > * {
-    min-width:0;
-  }
-
-  .hamburger{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .stats-grid,
-  .main-grid{
-    grid-template-columns:1fr;
-  }
-
-  .task-card{
-    flex-direction:column;
-  }
-
-  .task-action{
-    align-items:flex-start;
-  }
-
-  .search{
-    width:100%;
-    max-width:none;
-  }
-}
-
 .modal-overlay{
   position:fixed;
   top:0;

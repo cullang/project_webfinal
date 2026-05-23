@@ -45,7 +45,6 @@
 
     <!-- ===================== HEADER DASHBOARD ===================== -->
     <header class="topbar">
-      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari jadwal, tugas, atau catatan...">
@@ -174,7 +173,6 @@
 
 </div>
 
-<script src="{{ asset('js/ui.js') }}"></script>
 <script src="{{ asset('js/dashboard.js') }}"></script>
 </body>
 </html>

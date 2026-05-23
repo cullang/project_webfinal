@@ -45,7 +45,6 @@
 
     <!-- ===================== HEADER CATATAN ===================== -->
     <header class="topbar">
-      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
       <div class="search">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari catatan kuliah...">
@@ -304,7 +303,5 @@
   </div>
 </div>
 
-<script src="{{ asset('js/ui.js') }}"></script>
-<script src="{{ asset('js/catatan.js') }}"></script>
 </body>
 </html>

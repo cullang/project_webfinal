@@ -45,7 +45,7 @@
 
     <!-- ===================== HEADER JADWAL ===================== -->
     <header class="topbar">
-      <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+
       <div class="search-top">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Cari mata kuliah, ruangan, atau dosen...">
@@ -353,7 +353,6 @@
 </div>
 
 <!-- Script -->
-<script src="{{ asset('js/ui.js') }}"></script>
 <script src="{{ asset('js/jadwal.js') }}"></script>
 </body>
 </html>
