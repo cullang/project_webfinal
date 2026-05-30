@@ -37,7 +37,12 @@
     <!-- ===================== BOTTOM MENU ===================== -->
     <div class="bottom-menu">
       <a href="{{ route('settings') }}"><i class="fa-solid fa-user-gear"></i> Profil Mahasiswa</a>
-      <a href="{{ route('login') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button type="submit" style="background:none;border:none;cursor:pointer;color:inherit;font-family:inherit;font-size:inherit;padding:0;display:flex;align-items:center;gap:8px;">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+      </button>
+    </form>
     </div>
   </aside>
 

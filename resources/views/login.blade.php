@@ -24,25 +24,19 @@
     <h2>Masuk ke Akun</h2>
     <p class="subtitle">Silakan login untuk melanjutkan</p>
 
-    <form id="loginForm">
-
-      <!-- ===================== FORM INPUT ===================== -->
+    <form method="POST" action="{{ route('login.post') }}">
+      @csrf
       <div class="form-group">
         <label>NIM atau Email</label>
-        <!-- ===================== VALIDASI ERROR ===================== -->
-        <small id="nimError" class="error-message"></small>
-        <input type="text" id="nim" placeholder="Masukkan NIM atau Email">
-      </div>
-
-      <div class="form-group">
+        <small class="error-message">{{ $errors->first('nim') }}</small>
+        <input type="text" name="nim" placeholder="Masukkan NIM atau Email">
+    </div>
+    <div class="form-group">
         <label>Password</label>
-        <small id="passwordError" class="error-message"></small>
-        <input type="password" id="password" placeholder="Masukkan Password">
-      </div>
-
-      <!-- ===================== TOMBOL LOGIN ===================== -->
-      <button type="submit">Login</button>
-
+        <small class="error-message">{{ $errors->first('password') }}</small>
+        <input type="password" name="password" placeholder="Masukkan Password">
+    </div>
+    <button type="submit">Login</button>
     </form>
   </div>
 
