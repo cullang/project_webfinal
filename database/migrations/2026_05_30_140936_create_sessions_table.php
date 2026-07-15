@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+<<<<<<< HEAD:database/migrations/0001_01_01_000000_create_users_table.php
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable();
         });
 
+=======
+>>>>>>> 859ecd8ec40f3060048a67adcfc92292e548cfc2:database/migrations/2026_05_30_140936_create_sessions_table.php
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -44,8 +47,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
 };

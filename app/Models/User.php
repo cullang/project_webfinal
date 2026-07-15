@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -34,17 +35,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Note::class);
     }
+=======
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+class User extends Authenticatable
+{
+    protected $fillable = [
+        'nama',
+        'nim',
+        'email',
+        'password',
+    ];
+>>>>>>> 859ecd8ec40f3060048a67adcfc92292e548cfc2
+
+    protected $hidden = [
+        'password',
+    ];
 }
